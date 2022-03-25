@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "name": "Member",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ],
+      "required": true,
+      "default": "Male"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "date"
+    },
+    "employment_status": {
+      "type": "enumeration",
+      "enum": [
+        "SelfEmployed",
+        "Employed",
+        "Unemployed"
+      ]
+    },
+    "marital_status": {
+      "type": "enumeration",
+      "enum": [
+        "Married",
+        "Single",
+        "WaitingOnGod"
+      ]
+    },
+    "natural_group": {
+      "type": "enumeration",
+      "enum": [
+        "YoungAdultsAndYouth",
+        "GoodWomen",
+        "Excellent_Men"
+      ]
+    },
+    "first_timer": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "house_fellowship": {
+      "model": "house-fellowship"
+    },
+    "department": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Media",
+        "FollowUp",
+        "Ushering",
+        "Choir",
+        "Evangelism"
+      ]
+    }
+  }
+}

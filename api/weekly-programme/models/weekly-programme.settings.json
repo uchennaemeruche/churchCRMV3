@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "weekly_programmes",
+  "info": {
+    "name": "Weekly Programme",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "theme": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Digging_Deep",
+        "Faith_Clinic"
+      ],
+      "required": true
+    },
+    "time": {
+      "type": "time",
+      "required": true
+    },
+    "speaker": {
+      "type": "string"
+    },
+    "send_reminder": {
+      "type": "boolean",
+      "default": true
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

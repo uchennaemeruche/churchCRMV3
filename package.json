@@ -1,0 +1,40 @@
+{
+  "name": "church-crmv-3",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dayjs": "^1.10.8",
+    "knex": "0.21.18",
+    "mysql": "2.18.1",
+    "qs": "^6.10.3",
+    "strapi": "3.6.9",
+    "strapi-admin": "3.6.9",
+    "strapi-connector-bookshelf": "3.6.9",
+    "strapi-plugin-content-manager": "3.6.9",
+    "strapi-plugin-content-type-builder": "3.6.9",
+    "strapi-plugin-email": "3.6.9",
+    "strapi-plugin-i18n": "3.6.9",
+    "strapi-plugin-upload": "3.6.9",
+    "strapi-plugin-users-permissions": "3.6.9",
+    "strapi-utils": "3.6.9"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "ff7dbde0-8a89-4e32-b5f9-bdcd8777e1e5"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "license": "MIT"
+}

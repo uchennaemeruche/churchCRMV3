@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/weekly-programmes",
+      "handler": "weekly-programme.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/weekly-programmes/count",
+      "handler": "weekly-programme.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/weekly-programmes/:id",
+      "handler": "weekly-programme.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/weekly-programmes",
+      "handler": "weekly-programme.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/weekly-programmes/:id",
+      "handler": "weekly-programme.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/weekly-programmes/:id",
+      "handler": "weekly-programme.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

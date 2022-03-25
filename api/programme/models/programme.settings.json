@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programmes",
+  "info": {
+    "name": "Programme",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "theme": {
+      "type": "string"
+    },
+    "speaker": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "time": {
+      "type": "time"
+    },
+    "send_reminder": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Digging_Deep",
+        "Faith_Clinic",
+        "Sunday_Service",
+        "Special_Programme"
+      ],
+      "required": true
+    }
+  }
+}

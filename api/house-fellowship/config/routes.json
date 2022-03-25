@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/house-fellowships",
+      "handler": "house-fellowship.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/house-fellowships/count",
+      "handler": "house-fellowship.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/house-fellowships/:id",
+      "handler": "house-fellowship.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/house-fellowships",
+      "handler": "house-fellowship.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/house-fellowships/:id",
+      "handler": "house-fellowship.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/house-fellowships/:id",
+      "handler": "house-fellowship.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

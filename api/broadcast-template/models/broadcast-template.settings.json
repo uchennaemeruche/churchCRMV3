@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "broadcast_templates",
+  "info": {
+    "name": "Broadcast Template",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "richtext",
+      "required": true,
+      "unique": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Birthday",
+        "Digging_Deep",
+        "Faith_Clinic",
+        "Sunday_Service",
+        "Miracle_Service",
+        "Thanksgiving_Service"
+      ],
+      "required": true
+    }
+  }
+}
