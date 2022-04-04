@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "departments",
+  "info": {
+    "name": "Department",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "job_description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "import-content.index",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

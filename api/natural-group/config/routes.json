@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/natural-groups",
+      "handler": "natural-group.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/natural-groups/count",
+      "handler": "natural-group.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/natural-groups/:id",
+      "handler": "natural-group.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/natural-groups",
+      "handler": "natural-group.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/natural-groups/:id",
+      "handler": "natural-group.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/natural-groups/:id",
+      "handler": "natural-group.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

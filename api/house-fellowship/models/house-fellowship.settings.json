@@ -23,12 +23,6 @@
     "address": {
       "type": "text",
       "required": true
-    },
-    "host": {
-      "model": "member"
-    },
-    "leader": {
-      "model": "member"
     }
   }
 }

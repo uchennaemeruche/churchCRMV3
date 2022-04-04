@@ -7,6 +7,15 @@
       "config": {
         "policies": []
       }
+    },
+     {
+      "method": "POST",
+      "path": "/",
+      "handler": "broadcast.send",
+      "config": {
+        "policies": [],
+        "validate": "plugins.broadcast.config.validators.broadcast"
+      }
     }
   ]
 }

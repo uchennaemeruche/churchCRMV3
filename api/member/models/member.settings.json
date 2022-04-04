@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "members",
   "info": {
-    "name": "Member",
+    "name": "member",
     "description": ""
   },
   "options": {
@@ -25,8 +25,7 @@
         "Male",
         "Female"
       ],
-      "required": true,
-      "default": "Male"
+      "required": true
     },
     "phone_number": {
       "type": "string"
@@ -37,10 +36,11 @@
     "employment_status": {
       "type": "enumeration",
       "enum": [
-        "SelfEmployed",
         "Employed",
+        "SelfEmployed",
         "Unemployed"
-      ]
+      ],
+      "required": true
     },
     "marital_status": {
       "type": "enumeration",
@@ -50,32 +50,18 @@
         "WaitingOnGod"
       ]
     },
-    "natural_group": {
-      "type": "enumeration",
-      "enum": [
-        "YoungAdultsAndYouth",
-        "GoodWomen",
-        "Excellent_Men"
-      ]
-    },
     "first_timer": {
       "type": "boolean",
-      "default": false,
-      "required": true
+      "default": false
     },
     "house_fellowship": {
       "model": "house-fellowship"
     },
     "department": {
-      "type": "enumeration",
-      "enum": [
-        "None",
-        "Media",
-        "FollowUp",
-        "Ushering",
-        "Choir",
-        "Evangelism"
-      ]
+      "model": "department"
+    },
+    "natural_groups": {
+      "collection": "natural-group"
     }
   }
 }

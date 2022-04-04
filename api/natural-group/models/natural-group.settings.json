@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "natural_groups",
+  "info": {
+    "name": "Natural Group",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

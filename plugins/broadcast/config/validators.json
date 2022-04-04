@@ -1,0 +1,18 @@
+{
+  "validators":{
+    "broadcast":{
+      "message":"It appears that there is some invalid information on your user.",
+    "rules":{
+      "sender":{
+        "required":"Sender cannot be empty"
+      },
+      "recipients":{
+        "required":"Recipient cannot be empty"
+      },
+      "message":{
+        "required":"Message cannot be empty"
+      }
+    }
+    }
+  }
+}
