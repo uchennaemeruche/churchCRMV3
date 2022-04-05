@@ -155,6 +155,8 @@ class HomePage extends Component {
       recipientCategory: this.state.selectedCategory,
     };
 
+  
+
     // const errors = this.state.formErrors;
 
     // if (payload.sender == "") errors.push("Sender address cannot be empty");
