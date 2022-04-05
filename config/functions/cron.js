@@ -12,6 +12,56 @@
 
 const dayjs = require("dayjs");
 
+module.exports = {
+  // Runs every tuesday at 6am --  For Digging Deep
+  "0 0 6 * * 2": async () => {
+    try {
+      console.log("Hello Digging Deep");
+      const columns = [
+        "phone_number",
+        "name",
+        "birthdate",
+        "gender",
+        "marital_status",
+      ];
+      const members = await fetchMembers({ columns });
+      // const phoneNumbers = members.map((member) => member.phone_number);
+      const programmeType = "Digging_Deep";
+
+      // Fetch Digging deep topic, time and location for that day from digging deep table
+      const programme = await findProgramme(programmeType);
+
+      if (programme && !programme.send_reminder) return false;
+
+      const msg = await createProgrammeReminder({
+        programmeType,
+        theme: programme?.theme,
+        time: programme?.time,
+        speaker: programme?.speaker,
+        date: programme?.date,
+      });
+
+      members.forEach(async (member) => {
+        strapi.services.sms
+          .send({
+            msg: addPersonalInfoToMsg(
+              msg,
+              member.gender,
+              member.name,
+              member.marital_status
+            ),
+            phoneNumbers: [member.phone_number],
+            sender,
+          })
+          .then((res) => {
+            console.log("Res:", res);
+          });
+      });
+    } catch (error) {
+      console.log(" Digging Deep Error", error);
+    }
+  },
+};
 const sender = "RCCG CoP";
 const churchAddress = "RCCG CHAPEL OF PRAISE";
 
@@ -88,56 +138,6 @@ const createProgrammeReminder = async ({
   return msg.message;
 };
 
-module.exports = {
-  // Runs every tuesday at 6am --  For Digging Deep
-  "0 0 6 * * 2": async () => {
-    try {
-      console.log("Hello Digging Deep");
-      const columns = [
-        "phone_number",
-        "name",
-        "birthdate",
-        "gender",
-        "marital_status",
-      ];
-      const members = await fetchMembers({ columns });
-      // const phoneNumbers = members.map((member) => member.phone_number);
-      const programmeType = "Digging_Deep";
-
-      // Fetch Digging deep topic, time and location for that day from digging deep table
-      const programme = await findProgramme(programmeType);
-
-      if (programme && !programme.send_reminder) return false;
-
-      const msg = await createProgrammeReminder({
-        programmeType,
-        theme: programme?.theme,
-        time: programme?.time,
-        speaker: programme?.speaker,
-        date: programme?.date,
-      });
-
-      members.forEach(async (member) => {
-        strapi.services.sms
-          .send({
-            msg: addPersonalInfoToMsg(
-              msg,
-              member.gender,
-              member.name,
-              member.marital_status
-            ),
-            phoneNumbers: [member.phone_number],
-            sender,
-          })
-          .then((res) => {
-            console.log("Res:", res);
-          });
-      });
-    } catch (error) {
-      console.log(" Digging Deep Error", error);
-    }
-  },
-};
 // "0 0 4 * * 4": {
 //     task: async () => {
 //       console.log("Runs every thursday by 4am");
