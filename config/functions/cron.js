@@ -55,15 +55,16 @@ const birthdayMessage = async (gender, name, marital_status) => {
 };
 
 const addPersonalInfoToMsg = (msg, gender, name, marital_status) => {
-  const formattedName = `${gender?.toLowerCase() == "male"
-        ? "Mr. "
-        : marital_status?.toLowerCase() == "single"
-        ? "Ms. "
-        : "Mrs. "}` + name?.trim().split(" ")[0];
-  return msg.replace(
-    "[personal_info]",
-    formattedName
-  );
+  // const formattedName = `${gender?.toLowerCase() == "male"
+  //       ? "Mr. "
+  //       : marital_status?.toLowerCase() == "single"
+  //       ? "Ms. "
+  //       : "Mrs. "}` + name?.trim().split(" ")[0];
+  // return msg.replace(
+  //   "[personal_info]",
+  //   formattedName
+  // );
+  return msg.replace("[personal_info]", "Mr Uchenna")
 };
 
 /**
