@@ -12,9 +12,6 @@
 
 const dayjs = require("dayjs");
 
-module.exports = {
-  // Runs every tuesday at 6am --  For Digging Deep
-};
 const sender = "RCCG CoP";
 const churchAddress = "RCCG CHAPEL OF PRAISE";
 
