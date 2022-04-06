@@ -14,7 +14,7 @@ module.exports = {
     let result = await strapi
       .query("broadcast-template")
       .model.fetchAll({ columns: ["message, id"] });
-    result = result?.toJSON();
+    result = result.toJSON();
   },
 
   async getMessageTemplates2() {
