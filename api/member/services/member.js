@@ -8,7 +8,7 @@ module.exports = {
   async fetchMembers(filter, columns, relations = null) {
     if (!filter) {
       const result = await strapi.query("member").model.fetchAll({ columns });
-      return result?.toJSON();
+      return result.toJSON();
     }
 
     // if (relations) {
@@ -34,6 +34,6 @@ module.exports = {
         qb.whereRaw(filter);
       })
       .fetchAll({ columns });
-    return result?.toJSON();
+    return result.toJSON();
   },
 };

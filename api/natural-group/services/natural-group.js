@@ -10,6 +10,6 @@ module.exports = {
     const result = await strapi
       .query("natural-group")
       .model.fetchAll({ columns });
-    return result?.toJSON();
+    return result.toJSON();
   },
 };

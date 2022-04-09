@@ -9,6 +9,6 @@ module.exports = {
   async find(columns = ["name", "slug", "id"]) {
     const result = await strapi.query("department").model.fetchAll({ columns });
     console.log("Deprt Result", result.toJSON());
-    return result?.toJSON();
+    return result.toJSON();
   },
 };
