@@ -40,6 +40,7 @@ import Value from "../../../../../../.cache/admin/src/components/Roles/Condition
 // };
 
 const port = 1337;
+const host = "0.0.0.0"
 
 const getUrl = (to) =>
   to ? `/plugins/${pluginId}/${to}` : `/plugins/${pluginId}`;
@@ -174,7 +175,7 @@ class HomePage extends Component {
     //   });
     // }
 
-    axios.post("http://localhost:1337/broadcast", payload).then(
+    axios.post(`http://${host}:${port}/broadcast`, payload).then(
       (response) => {
         console.log(response);
         strapi.notification.error(` Res: ${response}`);
@@ -191,12 +192,12 @@ class HomePage extends Component {
 
   loadRecipients = async (model) => {
     return axios
-      .get(`http://localhost:${port}/${model}`)
+      .get(`http://${host}:${port}/${model}`)
       .then((response) => response.data);
   };
   getMessageTemplates = async () => {
     return axios
-      .get(`http://localhost:${port}/broadcast-templates`)
+      .get(`http://${host}:${port}/broadcast-templates`)
       .then((response) => response.data);
   };
 
