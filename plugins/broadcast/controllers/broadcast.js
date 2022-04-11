@@ -74,7 +74,7 @@ module.exports = {
         "phone_number",
         recipientCategory == "natural_group"
           ? "natural_groups.name as groupName"
-          : "natural_group as groupName",
+          : "natural_groups.name as groupName",
         "department",
       ];
 
