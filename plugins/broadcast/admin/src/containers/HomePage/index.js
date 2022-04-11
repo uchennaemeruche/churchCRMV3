@@ -40,7 +40,7 @@ import Value from "../../../../../../.cache/admin/src/components/Roles/Condition
 // };
 
 const port = 1337;
-const host = "0.0.0.0"
+const host = "54.242.36.140";
 
 const getUrl = (to) =>
   to ? `/plugins/${pluginId}/${to}` : `/plugins/${pluginId}`;
@@ -155,8 +155,6 @@ class HomePage extends Component {
       // isCustomRecipient: this.state.selectedRecipient == "custom_recipients",
       recipientCategory: this.state.selectedCategory,
     };
-
-  
 
     // const errors = this.state.formErrors;
 
