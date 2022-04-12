@@ -70,7 +70,7 @@ module.exports = {
 
       const filter = constructQueryFilter(recipientCategory, recipients);
       let columns = [
-        recipientCategory != "natural_group" ? "name" : "members.name",
+        "members.name as memberName",
         "phone_number",
         // "natural_groups.name as groupName",
 
