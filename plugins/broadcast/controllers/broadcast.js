@@ -72,7 +72,7 @@ module.exports = {
       let columns = [
         recipientCategory != "natural_group" ? "name" : "members.name",
         "phone_number",
-        "natural_groups.name as groupName",
+        // "natural_groups.name as groupName",
 
         // recipientCategory == "natural_group"
         //   ? "natural_groups.name as groupName"
