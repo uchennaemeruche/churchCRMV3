@@ -106,6 +106,9 @@ module.exports = {
         })
         .then((res) => {
           console.log("Res:", res);
+        })
+        .catch((err) => {
+          throw err;
         });
 
       ctx.send("Message broadcasted");

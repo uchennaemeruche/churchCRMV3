@@ -8,28 +8,32 @@ const axios = require("axios");
 
 module.exports = {
   async send({ msg, phoneNumbers = [], sender }) {
-    const formattedRecipients = phoneNumbers.map((phoneNumber, idx) => {
-      return { msidn: phoneNumber, msgid: idx };
-    });
+    try {
+      const formattedRecipients = phoneNumbers.map((phoneNumber, idx) => {
+        return { msidn: phoneNumber, msgid: idx };
+      });
 
-    const payload = {
-      SMS: {
-        auth: {
-          username: strapi.config.custom.smsUsername,
-          apikey: strapi.config.custom.smsApiKey,
+      const payload = {
+        SMS: {
+          auth: {
+            username: strapi.config.custom.smsUsername,
+            apikey: strapi.config.custom.smsApiKey,
+          },
+          message: {
+            sender,
+            messagetext: msg,
+          },
+          recipients: {
+            gsm: formattedRecipients,
+          },
         },
-        message: {
-          sender,
-          messagetext: msg,
-        },
-        recipients: {
-          gsm: formattedRecipients,
-        },
-      },
-    };
+      };
 
-    const res = await axios.post(strapi.config.custom.smsUrl, payload);
-    console.log("Res:", res.data);
-    return true;
+      const res = await axios.post(strapi.config.custom.smsUrl, payload);
+      console.log("Res:", res.data);
+      return true;
+    } catch (error) {
+      return error;
+    }
   },
 };
