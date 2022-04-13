@@ -21,6 +21,7 @@
     "mysql": "2.18.1",
     "qs": "^6.10.3",
     "rss-parser": "^3.12.0",
+    "sharp": "^0.30.3",
     "simple-statistics": "^7.7.5",
     "strapi": "3.6.9",
     "strapi-admin": "3.6.9",
@@ -37,7 +38,7 @@
     "strapi-utils": "3.6.9",
     "striptags": "^3.2.0"
   },
-  "resolutions":{
+  "resolutions": {
     "colors": "1.4.0"
   },
   "author": {
