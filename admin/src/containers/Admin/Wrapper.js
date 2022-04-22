@@ -20,7 +20,11 @@ const Wrapper = styled.div`
       }
       .container-fluid {
         width: 100vw !important;
-        padding-left: 0 !important;
+
+        .sc-bTfYFJ{
+          padding-left:10px;
+        }
+       
 
         .col-12 {
           width: 400px;
@@ -47,7 +51,10 @@ const Wrapper = styled.div`
         }
       }
       .container-fluid:last-child {
-        padding-left: 15px;
+        padding-left: 10px;
+      }
+      .container-fluid:nth-child(2){
+       
       }
     }
   }

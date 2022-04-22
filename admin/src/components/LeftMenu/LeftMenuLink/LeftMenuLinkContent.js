@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import { startsWith } from 'lodash';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -22,6 +22,8 @@ const LinkLabel = styled.span`
   padding-left: 2.5rem;
 `;
 
+
+
 // TODO: refacto this file
 const LeftMenuLinkContent = ({
   destination,
@@ -30,7 +32,9 @@ const LeftMenuLinkContent = ({
   location,
   notificationsCount,
   search,
+  onClickDrawerItem
 }) => {
+   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const isLinkActive = startsWith(
     location.pathname.replace('/admin', '').concat('/'),
     destination.concat('/')
@@ -72,6 +76,8 @@ const LeftMenuLinkContent = ({
         pathname: destination,
         search,
       }}
+      onClick={onClickDrawerItem}
+      
     >
       <LeftMenuIcon icon={iconName} />
       {content}

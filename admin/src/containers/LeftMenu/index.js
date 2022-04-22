@@ -17,6 +17,10 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
 
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
+  const toggleNavDrawer = () => {
+    setIsNavExpanded(!isNavExpanded);
+  }
+
   const {
     state: {
       isLoading,
@@ -52,9 +56,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
       <CustomNavToggle isNavExpanded={isNavExpanded}>
         <button
           className="hamburger"
-          onClick={() => {
-            setIsNavExpanded(!isNavExpanded);
-          }}
+          onClick={toggleNavDrawer}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +82,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
             links={filteredCollectionTypeLinks}
             location={location}
             searchable
+            onClickDrawerItem={toggleNavDrawer}
           />
         )}
         {filteredSingleTypeLinks.length > 0 && (
@@ -89,6 +92,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
             links={filteredSingleTypeLinks}
             location={location}
             searchable
+            onClickDrawerItem={toggleNavDrawer}
           />
         )}
 
@@ -99,6 +103,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
             links={pluginsSectionLinks}
             location={location}
             searchable={false}
+            onClickDrawerItem={toggleNavDrawer}
             emptyLinksListMessage="app.components.LeftMenuLinkContainer.noPluginsInstalled"
           />
         )}
@@ -109,6 +114,7 @@ const LeftMenu = ({ shouldUpdateStrapi, version, plugins, setUpdateMenu }) => {
             links={generalSectionLinks}
             location={location}
             searchable={false}
+            onClickDrawerItem={toggleNavDrawer}
           />
         )}
       </LinksContainer>

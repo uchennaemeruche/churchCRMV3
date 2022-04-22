@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import LeftMenuLinkContent from './LeftMenuLinkContent';
 
-const LeftMenuLink = ({ destination, iconName, label, location, notificationsCount, search }) => {
+const LeftMenuLink = ({ destination, iconName, label, location, notificationsCount, search , onClickDrawerItem}) => {
   return (
     <LeftMenuLinkContent
       destination={destination}
@@ -18,6 +18,7 @@ const LeftMenuLink = ({ destination, iconName, label, location, notificationsCou
       location={location}
       notificationsCount={notificationsCount}
       search={search}
+      onClickDrawerItem ={onClickDrawerItem}
     />
   );
 };

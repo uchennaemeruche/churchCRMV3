@@ -10,7 +10,7 @@ const Content = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100vw !important;
-    margin-left: 0 !important;
+    margin-left: 15px !important;
   }
 `;
 
