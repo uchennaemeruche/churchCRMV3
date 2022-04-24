@@ -224,8 +224,7 @@ class HomePage extends Component {
           description={
             "Complete the form below to broadcast your message to recipients"
           }
-        />
-
+        />{" "}
         <HeaderNav
           links={[
             {
@@ -238,121 +237,125 @@ class HomePage extends Component {
             },
           ]}
           style={{ marginTop: "4.4rem" }}
-        />
-
+        />{" "}
         <div className="row">
-          <Block
-            title="General"
-            description="Set broadcast parameters"
-            style={{ marginBottom: 12 }}
-          >
-            <Row className={"row"}>
-              <div className={"col-sm-12 col-lg-6 col-md-6 mb-sm-4"}>
-                {/* <Label htmlFor="sender">Set Sender Address</Label> */}
-                <InputText
-                  name="sender"
-                  value={this.state.sender}
-                  placeholder="Enter Sender Address - E.g RCCG CoP"
-                  type="text"
-                  onChange={({ target: { value } }) =>
-                    this.setState({ sender: value })
-                  }
-                />
-              </div>
-              <div className={"col-sm-12 col-lg-6 col-md-6"}>
-                {/* <Label htmlFor="recipients">Recipients</Label> */}
-                <Select
-                  value={this.state.selectedCategory}
-                  name="recipients"
-                  options={this.state.recipient_categories}
-                  onChange={({ target: { value } }) => this.setRecipient(value)}
-                />
-              </div>
-            </Row>
-            {this.state.show_subcategory && (
-              <Row className={"row"}>
-                <div className={"col-6"}>
-                  {/* <Label htmlFor="recipients">Select Sub Category</Label> */}
-                  <Select
-                    value={this.state.selectedRecipient}
-                    name="recipients"
-                    options={this.state.recipient_subcategory}
-                    onChange={({ target: { value } }) =>
-                      this.setState({ selectedRecipient: value })
-                    }
-                  />
-                </div>
-              </Row>
-            )}
+          <div className="col-md-12 col-lg-12">
+            <Block
+              title="General"
+              description="Set broadcast parameters"
+              style={{ marginBottom: 12 }}
+            >
 
-            {this.state.isCustomRecipient && (
               <Row className={"row"}>
-                <div className={"col-12"}>
+                <div className={"col-sm-12 col-lg-6 col-md-6 pb-18"} >
+                  {" "}
+                  {/* <Label htmlFor="sender">Set Sender Address</Label> */}{" "}
+                  <InputText
+                    name="sender"
+                    value={this.state.sender}
+                    placeholder="Enter Sender Address - E.g RCCG CoP"
+                    type="text"
+                    onChange={({ target: { value } }) =>
+                      this.setState({ sender: value })
+                    }
+                  />{" "}
+                </div>{" "}
+                <div className={"col-sm-12 col-lg-6 col-md-6"}>
+                  {" "}
+                  {/* <Label htmlFor="recipients">Recipients</Label> */}{" "}
+                  <Select
+                    value={this.state.selectedCategory}
+                    name="recipients"
+                    options={this.state.recipient_categories}
+                    onChange={({ target: { value } }) => this.setRecipient(value)}
+                  />{" "}
+                </div>{" "}
+              </Row>{" "}
+              {this.state.show_subcategory && (
+                <Row className={"row"}>
+                  <div className={"col-sm-12 col-lg-6 col-md-6"}>
+                    {" "}
+                    {/* <Label htmlFor="recipients">Select Sub Category</Label> */}{" "}
+                    <Select
+                      value={this.state.selectedRecipient}
+                      name="recipients"
+                      options={this.state.recipient_subcategory}
+                      onChange={({ target: { value } }) =>
+                        this.setState({ selectedRecipient: value })
+                      }
+                    />{" "}
+                  </div>{" "}
+                </Row>
+              )}{" "}
+              {this.state.isCustomRecipient && (
+                <Row className={"row"}>
+                  <div className={"col-sm-12 col-md-12 col-lg-12"}>
+                    <Textarea
+                      type="text"
+                      name="recipients"
+                      placeholder="Custom Recipients -  Enter comma-separated phone numbers."
+                      onChange={({ target: { value } }) =>
+                        this.setState({ customRecipient: value })
+                      }
+                      value={this.state.customRecipient}
+                    />{" "}
+                  </div>{" "}
+                </Row>
+              )}{" "}
+              <Row className={"row"}>
+                <div className={"col-sm-12 col-md-12 col-lg-12"}>
+                  {" "}
+                  {/* <Label htmlFor="templates">Select Template</Label> */}{" "}
+                  <Select
+                    value={this.state.selectedTemplate}
+                    name="messageTemplates"
+                    options={this.state.messageTemplates}
+                    onChange={({ target: { value } }) =>
+                      this.setMessageTemplate(value)
+                    }
+                  />{" "}
+                </div>{" "}
+              </Row>{" "}
+              <Row className={"row"}>
+                <div className={"col-sm-12 col-md-12 col-lg-12"}>
                   <Textarea
                     type="text"
-                    name="recipients"
-                    placeholder="Custom Recipients -  Enter comma-separated phone numbers."
+                    name="selectedTemplate"
+                    placeholder="Message to Broadcast"
                     onChange={({ target: { value } }) =>
-                      this.setState({ customRecipient: value })
+                      this.setState({ selectedTemplate: value })
                     }
-                    value={this.state.customRecipient}
-                  />
-                </div>
-              </Row>
-            )}
+                    value={this.state.selectedTemplate}
+                  />{" "}
+                </div>{" "}
+              </Row>{" "}
+              <Row className={"row"}>
+                <div className={"col-sm-12 col-md-12 col-lg-12"}>
+                  <Button
+                    label={"Send Broadcast"}
+                    color={"secondary"}
+                    onClick={this.sendBroadcastMessage}
+                  >
+                    {" "}
+                    {this.state.isBroadcasting && (
+                      <LoadingIndicator
+                        animationTime="0.6s"
+                        borderWidth="4px"
+                        borderColor="#f3f3f3"
+                        borderTopColor="#555555"
+                        size="26px"
+                      />
+                    )}{" "}
+                  </Button>{" "}
+                </div>{" "}
+              </Row>{" "}
 
-            <Row className={"row"}>
-              <div className={"col-12"}>
-                {/* <Label htmlFor="templates">Select Template</Label> */}
-                <Select
-                  value={this.state.selectedTemplate}
-                  name="messageTemplates"
-                  options={this.state.messageTemplates}
-                  onChange={({ target: { value } }) =>
-                    this.setMessageTemplate(value)
-                  }
-                />
-              </div>
-            </Row>
-
-            <Row className={"row"}>
-              <div className={"col-12"}>
-                <Textarea
-                  type="text"
-                  name="selectedTemplate"
-                  placeholder="Message to Broadcast"
-                  onChange={({ target: { value } }) =>
-                    this.setState({ selectedTemplate: value })
-                  }
-                  value={this.state.selectedTemplate}
-                />
-              </div>
-            </Row>
-
-            <Row className={"row"}>
-              <div className={"col-12"}>
-                <Button
-                  label={"Send Broadcast"}
-                  color={"secondary"}
-                  onClick={this.sendBroadcastMessage}
-                >
-                  {this.state.isBroadcasting && (
-                    <LoadingIndicator
-                      animationTime="0.6s"
-                      borderWidth="4px"
-                      borderColor="#f3f3f3"
-                      borderTopColor="#555555"
-                      size="26px"
-                    />
-                  )}
-                </Button>
-              </div>
-            </Row>
-          </Block>
-        </div>
+            </Block>{" "}
+          </div>
+        </div>{" "}
         <Row className="row">
-          <List items={this.state.history} />
-        </Row>
+          <List items={this.state.history} />{" "}
+        </Row>{" "}
       </div>
     );
   }

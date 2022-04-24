@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div `
   display: flex;
   overflow-x: hidden;
 
@@ -18,13 +18,13 @@ const Wrapper = styled.div`
         display: flex;
         flex-wrap: wrap;
       }
+
       .container-fluid {
         width: 100vw !important;
 
-        .sc-bTfYFJ{
-          padding-left:10px;
+        .sc-bTfYFJ {
+          padding-left: 10px;
         }
-       
 
         .col-12 {
           width: 400px;
@@ -53,8 +53,7 @@ const Wrapper = styled.div`
       .container-fluid:last-child {
         padding-left: 10px;
       }
-      .container-fluid:nth-child(2){
-       
+      .container-fluid:nth-child(2) {
       }
     }
   }
