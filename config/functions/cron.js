@@ -48,34 +48,15 @@ async function addPersonalInfoToMsg(msg, gender, name, marital_status) {
   return msg.replace(
     "[personal_info]",
     `${
-      gender?.toLowerCase() == "male"
+      gender.toLowerCase() == "male"
         ? "Mr. "
-        : marital_status?.toLowerCase() == "single"
+        : marital_status.toLowerCase() == "single"
         ? "Ms. "
         : "Mrs. "
     }${name?.trim().split(" ")[0]}`
   );
 };
 
-async function createProgrammeReminder({
-  theme,
-  time,
-  speaker,
-  date,
-  programmeType,
-}){
-  const msgs = await fetchTemplates(programmeType);
 
-  let msg = msgs[Math.floor(Math.random() * msgs.length)];
-  if (!theme) return msg.message;
-
-  msg.message += `
-    ${theme ? "THEME:" + theme : ""}
-    ${speaker ? "Ministering:" + speaker : ""}
-    ${date ? ("Date:" + date + " " + time ? time : "") : ""}
-  `;
-
-  return msg.message;
-};
 
 module.exports ={};
