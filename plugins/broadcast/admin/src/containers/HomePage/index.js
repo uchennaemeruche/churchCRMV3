@@ -247,7 +247,7 @@ class HomePage extends Component {
             style={{ marginBottom: 12 }}
           >
             <Row className={"row"}>
-              <div className={"col-6"}>
+              <div className={"col-sm-12 col-lg-6 col-md-6 mb-sm-4"}>
                 {/* <Label htmlFor="sender">Set Sender Address</Label> */}
                 <InputText
                   name="sender"
@@ -259,7 +259,7 @@ class HomePage extends Component {
                   }
                 />
               </div>
-              <div className={"col-6"}>
+              <div className={"col-sm-12 col-lg-6 col-md-6"}>
                 {/* <Label htmlFor="recipients">Recipients</Label> */}
                 <Select
                   value={this.state.selectedCategory}
