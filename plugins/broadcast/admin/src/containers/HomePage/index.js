@@ -138,13 +138,6 @@ class HomePage extends Component {
   sendBroadcastMessage = async () => {
     this.setState({ isBroadcasting: true });
 
-    // setTimeout(() => {
-    //   this.setState({ isBroadcasting: false });
-    //   strapi.notification.success(
-    //     `Broadcast successfully ${this.state.sender} -  ${this.state.selectedRecipient} -  ${this.state.selectedTemplate}`
-    //   );
-    // }, 1000);
-
     const payload = {
       sender: this.state.sender,
       recipients:
@@ -152,38 +145,46 @@ class HomePage extends Component {
           ? this.state.customRecipient
           : this.state.selectedRecipient,
       message: this.state.selectedTemplate,
-      // isCustomRecipient: this.state.selectedRecipient == "custom_recipients",
       recipientCategory: this.state.selectedCategory,
     };
 
-    // const errors = this.state.formErrors;
+    const errors = this.state.formErrors;
 
-    // if (payload.sender == "") errors.push("Sender address cannot be empty");
-    // if (payload.message == "" || payload.message.includes("select"))
-    //   errors.push("Enter a valid message to broadcast");
-    // if (
-    //   payload.recipients == "" ||
-    //   payload.recipients.toLowerCase().includes("select")
-    // )
-    //   errors.push("Select a valid recipient");
+    console.log("Payload", payload)
 
-    // if (errors.length >= 1) {
-    //   return errors.forEach((error) => {
-    //     return strapi.notification.error(`${error}`);
-    //   });
-    // }
+    if (payload.sender == "") errors.push("Sender address cannot be empty");
+
+    if (
+      payload.recipients == "" ||
+      payload.recipients == "select"
+      || payload.recipientCategory == 'select'
+      || payload.recipientCategory == ''
+    )
+      errors.push("Select a valid recipient");
+
+    if (payload.message.trim() == "" || payload.message == "select")
+      errors.push("Enter a valid message to broadcast");
+
+    if (errors.length >= 1) {
+      return errors.forEach((error, indx) => {
+        const currentErr = error;
+        errors.splice(indx)
+        return strapi.notification.error(`${currentErr}`);
+      });
+    }
 
     axios.post(`http://${host}:${port}/broadcast`, payload).then(
       (response) => {
-        console.log(response);
-        strapi.notification.error(` Res: ${response}`);
+        console.log("Response Via:", response.data);
+        console.log("Response Via:", response);
+        strapi.notification.success(`${response.data}`);
       },
       (error) => {
-        console.log(error);
-        strapi.notification.error(`Err: ${error.toString()}`);
-        strapi.notification.error(`Msg: ${error.message}`);
-        strapi.notification.error(`Data1: ${error.data}`);
-        strapi.notification.error(`Data: ${error.data.toString()}`);
+        console.log("Error occured", error);
+        if (error.message.toString() == "Network Error")
+          strapi.notification.error(`A ${error.message.toString()} occurred. Kindly check if you still have a healthy internet connection.`);
+        else strapi.notification.error(`${error.message.toString()} occurred.`);
+        ;
       }
     );
   };
@@ -212,7 +213,8 @@ class HomePage extends Component {
         });
       })
       .catch((err) => {
-        strapi.notification.error(`Err: ${err}`);
+        console.log(err)
+        strapi.notification.error("Could not load message templates. Kindly check if you still have a healthy internet connection.");
       });
   }
 
