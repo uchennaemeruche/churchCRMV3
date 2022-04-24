@@ -5,12 +5,12 @@ const dayjs = require("dayjs");
 const sender = "RCCG CoP";
 const churchAddress = "RCCG CHAPEL OF PRAISE";
 
-const fetchMembers = async ({ columns, filter }) => {
+async function fetchMembers({ columns, filter }) {
   const members = await strapi.services.member.fetchMembers(filter, columns);
   return members;
 };
 
-const fetchTemplates = async (category) => {
+async function fetchTemplates(category) {
   const result = await strapi
     .query("broadcast-template")
     .model.query((qb) => {
@@ -20,7 +20,7 @@ const fetchTemplates = async (category) => {
   return result.toJSON();
 };
 
-const findProgramme = async (type) => {
+async function findProgramme(type) {
   const result = await strapi
     .query("programme")
     .model.query((qb) => {
@@ -38,13 +38,13 @@ const findProgramme = async (type) => {
   return result.toJSON();
 };
 
-const birthdayMessage = async (gender, name, marital_status) => {
+async function birthdayMessage (gender, name, marital_status) {
   const msgs = await fetchTemplates("Birthday");
   const msg = msgs[Math.floor(Math.random() * msgs.length)];
   return addPersonalInfoToMsg(msg.message, gender, name, marital_status);
 };
 
-const addPersonalInfoToMsg = (msg, gender, name, marital_status) => {
+async function addPersonalInfoToMsg(msg, gender, name, marital_status) {
   return msg.replace(
     "[personal_info]",
     `${
@@ -57,13 +57,13 @@ const addPersonalInfoToMsg = (msg, gender, name, marital_status) => {
   );
 };
 
-const createProgrammeReminder = async ({
+async function createProgrammeReminder({
   theme,
   time,
   speaker,
   date,
   programmeType,
-}) => {
+}){
   const msgs = await fetchTemplates(programmeType);
 
   let msg = msgs[Math.floor(Math.random() * msgs.length)];
