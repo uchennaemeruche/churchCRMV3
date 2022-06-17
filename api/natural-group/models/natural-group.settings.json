@@ -20,6 +20,12 @@
     "slug": {
       "type": "string",
       "unique": true
+    },
+    "leader": {
+      "model": "member"
+    },
+    "asst_leader": {
+      "model": "member"
     }
   }
 }

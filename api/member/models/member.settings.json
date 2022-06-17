@@ -60,7 +60,7 @@
     "department": {
       "model": "department"
     },
-    "natural_groups":{
+    "natural_groups": {
       "collection": "natural-group"
     }
   }

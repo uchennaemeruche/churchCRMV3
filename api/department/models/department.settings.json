@@ -23,6 +23,12 @@
     "slug": {
       "type": "string",
       "unique": true
+    },
+    "hod": {
+      "model": "member"
+    },
+    "asst_hod": {
+      "model": "member"
     }
   }
 }

@@ -23,6 +23,12 @@
     "address": {
       "type": "text",
       "required": true
+    },
+    "leader": {
+      "model": "member"
+    },
+    "ass_leader": {
+      "model": "member"
     }
   }
 }
