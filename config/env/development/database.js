@@ -4,7 +4,7 @@ module.exports = ({ env }) => ({
       default: {
         connector: "bookshelf",
         settings: {
-          client: "mysql",
+          client: "mysql2",
           host: env("DATABASE_HOST", "localhost"),
           port: env.int("DATABASE_PORT", 3306),
           database: env("DATABASE_NAME", "churchcrm"),
