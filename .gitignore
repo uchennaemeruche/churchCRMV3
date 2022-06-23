@@ -110,6 +110,7 @@ coverage
 .env.development
 .env.production
 ecosystem.config.js
+
 license.txt
 exports
 *.cache
