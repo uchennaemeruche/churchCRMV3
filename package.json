@@ -2,7 +2,7 @@
     "name": "church-crmv-3",
     "private": true,
     "version": "0.1.0",
-    "description": "A Strapi application",
+    "description": "A Strapi Application",
     "scripts": {
         "develop": "NODE_OPTIONS=--openssl-legacy-provider && strapi develop",
         "start": "strapi start",
