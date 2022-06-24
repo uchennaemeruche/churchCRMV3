@@ -164,7 +164,7 @@ const HomePage = ({ history: { push } }) => {
                     {...linkProps}
                     style={{ verticalAlign: ' bottom', marginBottom: 5 }}
                   >
-                    Add A New Member
+                    Add New Member
                   </ALink>
                 )}
               </FormattedMessage> */}
