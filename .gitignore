@@ -110,7 +110,8 @@ coverage
 .env.development
 .env.production
 ecosystem.config.js
-
+zzConfigFolder/
+zzConfigFolder
 license.txt
 exports
 *.cache
