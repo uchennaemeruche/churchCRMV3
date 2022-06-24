@@ -154,17 +154,20 @@ const HomePage = ({ history: { push } }) => {
                   ))}
                 </div>
               )} */}
-              <FormattedMessage id={linkProps.id}>
+              {/* <FormattedMessage id={linkProps.id}>
                 {msg => (
                   <ALink
-                    rel="noopener noreferrer"
+                   
+                    to={{
+                      pathname: "/plugins/content-manager/collectionType/application::member.member/create",
+                    }}
                     {...linkProps}
                     style={{ verticalAlign: ' bottom', marginBottom: 5 }}
                   >
-                    Add New Member
+                    Add A New Member
                   </ALink>
                 )}
-              </FormattedMessage>
+              </FormattedMessage> */}
               <Separator style={{ marginTop: 37, marginBottom: 36 }} />
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 {FIRST_BLOCK_LINKS.map((data, index) => {
