@@ -73,6 +73,9 @@
     },
     "profession": {
       "type": "string"
+    },
+    "sunday_school_class": {
+      "model": "sunday-school"
     }
   }
 }
