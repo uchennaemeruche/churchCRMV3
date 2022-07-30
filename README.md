@@ -6,6 +6,9 @@ A quick description of your strapi application
 
 ssh -i ~/.ssh/strapi-churchcrm-key.pem ubuntu@52.72.18.103
 
+> git pull
+
 > NODE_ENV=production yarn build --no-optimization -- to build the application
-pm2 restart 0
+
+> pm2 restart 0
 
