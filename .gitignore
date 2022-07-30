@@ -119,3 +119,4 @@ build
 .strapi-updater.json
 package-lock.json
 webhook.js
+google_form.webhook.js

@@ -12,7 +12,7 @@ module.exports = {
     },
 
     beforeUpdate(params, data) {
-      data.slug = data.name.toLowerCase().split(" ").join("_");
+      if(data.name) data.slug = data.name.toLowerCase().split(" ").join("_");
     },
   },
 };

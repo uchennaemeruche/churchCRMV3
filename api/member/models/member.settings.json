@@ -38,7 +38,9 @@
       "enum": [
         "Employed",
         "SelfEmployed",
-        "Unemployed"
+        "Unemployed",
+        "Student",
+        "Retired"
       ],
       "required": true
     },
@@ -47,7 +49,7 @@
       "enum": [
         "Married",
         "Single",
-        "WaitingOnGod"
+        "Widow_er"
       ]
     },
     "first_timer": {
@@ -62,6 +64,15 @@
     },
     "natural_groups": {
       "collection": "natural-group"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "bus_stop": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
     }
   }
 }
