@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sunday_schools",
+  "info": {
+    "name": "Sunday School",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ClassName": {
+      "type": "string"
+    },
+    "teacher": {
+      "model": "member"
+    },
+    "asst_teacher": {
+      "model": "member"
+    }
+  }
+}
