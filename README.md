@@ -2,7 +2,7 @@
 
 A quick description of your strapi application
 
-#AWS Deployment
+#AWS Deployment guide
 
 ssh -i ~/.ssh/strapi-churchcrm-key.pem ubuntu@52.72.18.103
 
